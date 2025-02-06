@@ -1,0 +1,335 @@
+/* Reset de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Constantia', sans-serif;
+    background: linear-gradient(250deg, #ffbf00, #ff2f00);
+    color: #100035;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos de header */
+header {
+    background-color: #3e074e;
+    color: #ff6600;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    padding: 10px 20px;
+    color: #ff0;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a.active {
+    color: #080000;
+}
+
+nav ul li a:hover {
+    color: #d41515;
+}
+
+/* Secciones ocultas por defecto */
+section {
+    display: none;
+}
+
+/* Sección activa visible */
+section.active {
+    display: block;
+}
+
+/* Estilos de la sección de inicio */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.home-text {
+    width: 45%;
+}
+
+.home-text h2 {
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.home-text p {
+    font-size: 18px;
+}
+
+.nuevo-texto {
+    font-size: 60px !important;
+    color: #633d3d !important;
+    margin-top: 10px;
+    text-shadow: 3px 3px 6px rgba(255, 254, 254, 0.4);
+}
+
+/* Slider */
+.slider-box {
+    width: 50%;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider-box ul {
+    display: flex;
+    width: 300%;
+    animation: slide 40s infinite alternate ease-in-out;
+}
+
+.slider-box li {
+    width: 100%;
+    list-style: none;
+    position: relative;
+}
+
+.slider-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.texto {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: rgb(255, 11, 222);
+    text-shadow: 2px 2px 4px #000;
+    width: calc(100% - 40px);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.texto h2 {
+    font-size: 30px;
+}
+
+.texto p {
+    margin-top: 10px;
+}
+
+button {
+    background-color: aqua;
+    color: #ff0;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: aqua;
+    color: #e90808;
+}
+
+/* Nueva hilera de imágenes usando Grid */
+.image-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Cinco columnas iguales */
+    gap: 15px; /* Espacio entre imágenes */
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.image-row img {
+    width: 100%;  /* Ocupa todo el ancho de la celda */
+    height: auto; /* Mantiene la proporción */
+    border-radius: 15px; /* Bordes redondeados */
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-row img:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el cursor */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+/* Estilos para el lightbox */
+.lightbox {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro semitransparente */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .lightbox-content {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* O usa 'cover' si quieres que la imagen llene el contenedor recortándose */
+    margin: 0;
+    border-radius: 0;
+}
+  
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .close:hover {
+    color: #ccc;
+  }
+/* Galería de eventos */
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Animación de las imágenes */
+@keyframes slide {
+    0%, 20% { margin-left: 0; }
+    40%, 60% { margin-left: -100%; }
+    80%, 100% { margin-left: -200%; }
+}
+
+/* Estilos responsivos para pantallas pequeñas (460px o menos) */
+@media (max-width: 460px) {
+    .flex-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .slider-box {
+        width: 100%;
+        height: auto;
+    }
+
+    .slider-box img,
+    .gallery-item img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    @media (max-width: 460px) {
+        .image-row {
+          grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+          column-gap: 0;    /* Sin espacio horizontal entre columnas */
+          row-gap: 50px;    /* Espacio de 50px entre filas, ajusta el valor según necesites */
+        }
+      }
+@media (max-width: 460px) {
+    .image-row {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+        gap: 0; /* Elimina el espacio entre columnas */
+        padding: 0; /* Opcional: elimina también cualquier padding */
+    }
+}
+
+    #contact button {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        background-color: aqua;
+        color: #000;
+    }
+}
+@media (max-width: 768px) {
+    .image-row {
+        grid-template-columns: repeat(3, 1fr); /* Tres columnas en dispositivos medianos */
+    }
+}
+
+@media (max-width: 460px) {
+    .image-row {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en dispositivos pequeños */
+    }
+}
+/* Estilos para la galería en versión de escritorio */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columnas */
+    gap: 10px; /* Espacio entre filas y columnas */
+    margin-top: 20px; /* Separación con el título */
+  }
+  
+  /* Aseguramos que las imágenes se adapten al contenedor */
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  /* Estilos para dispositivos móviles (por ejemplo, hasta 768px) */
+  @media (max-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: 1fr; /* 2 columnas en móviles */
+    }
+  }
+  /* Estilos servicios*/
+  .plans-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.plan-btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: #ff6600;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.plan-btn:hover {
+    background-color: #cc5500;
+}
+
+.plan-info {
+    display: none; /* Ocultamos la información por defecto */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.plan-info img {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
